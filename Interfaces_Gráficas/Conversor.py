@@ -13,8 +13,9 @@ raiz.title("Pies a metros") #Para poner titulo a la ventana
 
 marcoPrincipal = ttk.Frame(raiz, padding="3 3 12 12") #Witges tipo frame padding atributo que dice separacion de las orillas arriba, abajo, iz, derecha
 marcoPrincipal.grid(column=0, row=0, sticky=(N, W, E, S)) #Grid en que columna y en que fila sticky a donde se va a mover 
-marcoPrincipal.columnconfigure(0, weight=1) #Dsitribuidos de forma igual filas y columnas
+marcoPrincipal.columnconfigure(0, weight=1) #Distribuidos de forma igual filas y columnas
 marcoPrincipal.rowconfigure(0, weight=1)
+
 #Variables
 pies = StringVar() #Objeto que guarda cadena y lo convierte a flotante
 metros = StringVar() #Mostra el resultado
