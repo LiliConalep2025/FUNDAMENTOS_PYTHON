@@ -4,6 +4,7 @@ import csv
    
 #VENTANA PRINCIPAL
 raiz = Tk() 
+
 raiz.title("REGISTRO") 
 
 #VARIABLES
@@ -14,7 +15,9 @@ Email = StringVar()
 Movil = StringVar()
 Oficio = StringVar()
 Estado = StringVar()
-Aficiones = StringVar()
+leervar = BooleanVar()
+musicavar = BooleanVar()
+videojuegosvar = BooleanVar()
 
  #FUNCIÓN PARA GUARDAR LOS DATOS
 def Guardar():
@@ -62,6 +65,13 @@ mi_frame1 = ttk.Frame(marcoPrincipal, width=250, height=90, relief="groove", bor
 mi_frame1.grid(column=1, row=3)
 mi_frame1.grid_propagate(False) #PARA MANTENER EL TAMAÑO DEL FRAME
 
+#FRAME ESTADOS
+
+#FRAME OCUPACION
+mi_frame2 = ttk.Frame(marcoPrincipal, width=100, height=100, relief="groove", borderwidth=2)
+mi frame2.grid(colum=2, row=2)
+mi_frame2.grid_propagate(False) #PARA MANTENER EL TAMAÑO DEL FRAME
+
 #ETIQUETAS Y CAJAS DE  TEXTO
 ttk.Label(mi_frame, text="Nombre:").grid(column=1, row=2, sticky=W) 
 txtNombre = ttk.Entry(mi_frame, width=25, textvariable=Nombre)
@@ -87,7 +97,10 @@ txtMovil.grid(column=2, row=6, sticky=(W, E), padx=5, pady=5)
 #COMBO DE ESTADOS
 comboEstados = ttk.Combobox(marcoPrincipal, textvariable=Estado)
 comboEstados.grid(column=3, row=3, sticky=W, padx=5, pady=5)
-comboEstados['values'] = ("Querétaro","Jalisco", "Nayarit", "Colima", "Michoacan", "Zacatecas", "Puebla", "Oaxaca")
+comboEstados['values'] = ("Querétaro","Jalisco", "Nayarit", "Colima", "Michoacan", "Zacatecas", "Puebla", "Oaxaca",
+"Aguascalientes, "Baja California", "Campeche", "Chiapas", "Chihuahua","Ciudad de México", "Coahuila","Durango",
+"Guanajuato", "Guerrero", "Hidalgo","Morelos", "Nayarit", "Nuevo León", "Quintana Roo", "San Luis Potosí", "Sinaloa",
+"Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz","Yucatán" )
 comboEstados.current(0) #Por default toma el primero de la lista para mostrar
 
 #BOTONES
@@ -95,21 +108,20 @@ ttk.Button(marcoPrincipal, text="Guardar", command=Guardar).grid(column=1, row=8
 ttk.Button(marcoPrincipal, text="Cancelar", command=Cancelar).grid(column=2, row=8, sticky=W, padx=3, pady=3)
 
 #RADIO BUTTON OFICIOS
-Estudiante = ttk.Radiobutton(marcoPrincipal, text="Estudiante",variable = Oficio, value = "Estudiante")
+Estudiante = ttk.Radiobutton(mi_frame2, text="Estudiante",variable = Oficio, value = "Estudiante")
 Estudiante.grid(column=3, row=0, sticky=W)
-Empleado = ttk.Radiobutton(marcoPrincipal, text="Empleado",variable = Oficio, value = "Empleado")
+Empleado = ttk.Radiobutton(mi_frame2, text="Empleado",variable = Oficio, value = "Empleado")
 Empleado.grid(column=3, row=1, sticky=W)
-Desempleado = ttk.Radiobutton(marcoPrincipal, text="Desempleado",variable = Oficio, value = "Desempleado")
+Desempleado = ttk.Radiobutton(mi_frame2, text="Desempleado",variable = Oficio, value = "Desempleado")
 Desempleado.grid(column=3, row=2, sticky=W)
 
 #RADIO BUTTON AFICIONES
 ttk.Label(mi_frame1, text="Aficiones:").grid(column=1, row=7, sticky=W) 
-Leer = ttk.Radiobutton(mi_frame1, text="Leer",variable = Aficiones, value = "Leer")
+Leer = ttk.Checkbutton(mi_frame1, text="Leer", variable=leervar)
 Leer.grid(column=1, row=8, sticky=W)
-Musica = ttk.Radiobutton(mi_frame1, text="Música",variable = Aficiones, value = "Musica")
+Musica = ttk.Checkbutton(mi_frame1, text="Música", variable=musicavar)
 Musica.grid(column=2, row=8, sticky=W)
-Videojuegos = ttk.Radiobutton(mi_frame1, text="Videojuegos",variable = Aficiones, value = "Videojuegos")
+Videojuegos = ttk.Checkbutton(mi_frame1, text="Videojuegos", variable=videojuegosvar)
 Videojuegos.grid(column=3, row=8, sticky=W)
-
 
 raiz.mainloop() 
